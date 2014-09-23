@@ -5,7 +5,10 @@ class StaticPageController < ApplicationController
   def help
   end
   
-  def abut
+  def about
+  end
+  
+  def contact
   end
   
 end
