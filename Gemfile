@@ -4,6 +4,7 @@ ruby '1.9.3'
 
 gem 'rails', '4.0.8'
 
+
 group :development, :test do
   ##
   # This comment for change database used by the web-app
@@ -12,7 +13,7 @@ group :development, :test do
   # gem 'sqlite3', '1.3.8'
   #
   ##
-  gem 'pg'
+  gem 'pg', '0.15.1'
   gem 'rspec-rails', '2.13.1'
 end
 
@@ -33,6 +34,5 @@ group :doc do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor', '0.0.2'
 end
