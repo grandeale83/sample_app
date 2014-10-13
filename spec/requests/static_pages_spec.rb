@@ -49,7 +49,7 @@ describe "Static pages" do
   ##Test set on Contats Page
   describe "Contacts page" do
     
-    it "should have the Content 'Contacts'" do
+    it "should have the content 'Contacts'" do
       visit '/static_page/contact'
       expect(page).to have_content('Contacts')
     end
