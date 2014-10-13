@@ -7,7 +7,7 @@ $grayMediumLight: #eaeaea;
 /* universal */
 
 html {
-  overfloy-y: scroll;
+  overflow-y: scroll;
 }
 
 body {
@@ -24,13 +24,12 @@ textarea {
 
 .center {
   text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
 }
 
-.center h1 {
-  margin-bottom: 10px;
-}
-
-/* typogrphy */
+/* typography */
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -56,6 +55,7 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
+
 
 /* header */
 
@@ -84,9 +84,9 @@ footer {
   color: $grayLight;
   a {
     color: $gray;
-      &:hover {
-        color: $grayDarker;
-      }
+    &:hover {
+      color: $grayDarker;
+    }
   }
   small {
     float: left;
