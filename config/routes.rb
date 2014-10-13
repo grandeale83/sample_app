@@ -1,8 +1,28 @@
 Rails.application.routes.draw do
-  get "static_page/home"
-  get "static_page/help"
-  get "static_page/about"
-  get "static_page/contact"
+  get "users/new"
+ 
+ ##
+ # Per il progetto, queste regole semplici vengono sostituite
+ # da quelle immediatamente successive più generali
+ #
+ # get "static_page/home"
+ # get "static_page/help"
+ # get "static_page/about"
+ # get "static_page/contact"
+ ##
+  
+  ##
+  #Nuove regole generali
+  ##
+  
+  
+  #match '/', to: 'static_page#home', via: 'get' NON FUNZIONA
+  root 'static_page#home'
+  match '/help', to: 'static_page#help', via: 'get'
+  match '/about', to: 'static_page#about', via: 'get'
+  match 'contact', to: 'static_page#contact', via: 'get'
+  
+  match '/signup', to: 'users#new', via: 'get'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
