@@ -21,18 +21,20 @@ describe User do
   #followin check line is useless: user created as in before block has no invalid values
   it { should be_valid }
   
+  #USERNAME
   describe "when name is not present" do
     before { @user.name = " " }
     it { should_not be_valid }
   end
   
-  describe "when email is not present" do
-    before { @user.email = " " }
+  describe "when user name is too long" do
+    before { @user.name = "a" * 51 }
     it { should_not be_valid }
   end
   
-  describe "when user name is too long" do
-    before { @user.name = "a" * 51 }
+  #E-MAIL
+  describe "when email is not present" do
+    before { @user.email = " " }
     it { should_not be_valid }
   end
   
@@ -56,6 +58,17 @@ describe User do
     it { should_not be_valid }
   end
   
+  describe "addresses with mixed case" do
+    let(:mixed_case_email) { "Foo@ExAMPle.CoM" }
+    
+    it "should be saved in mixed case" do
+      @user.email = mixed_case_email
+      @user.save
+      expect (@user.reload.email).to eq mixed_case_email.downcase
+    end
+  end
+  
+  #PASSWORD
   describe "when password is not present" do
     before do
       @user = User.new(name: "nomeutente" , email: "nomeutente@email.it" , password: " " ,
