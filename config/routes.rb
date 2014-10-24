@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get "users/new"
- 
+   
  ##
  # Per il progetto, queste regole semplici vengono sostituite
  # da quelle immediatamente successive più generali
@@ -15,7 +14,7 @@ Rails.application.routes.draw do
   #Nuove regole generali
   ##
   
-  
+  resources :users
   #match '/', to: 'static_page#home', via: 'get' NON FUNZIONA
   root 'static_page#home'
   match '/help', to: 'static_page#help', via: 'get'
