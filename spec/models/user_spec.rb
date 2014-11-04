@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe User do
   
+  
   before  do
     @user = User.new(name: "Alessandro Arturi", email: "a.arturi@testsampleapp.com", 
                             password: "foobar", password_confirmation: "foobar")
@@ -17,6 +18,8 @@ describe User do
   it { should respond_to( :password_confirmation ) }
   #this test the presence of authenticate method
   it { should respond_to( :authenticate ) }
+  #This test the presence of the remember token
+  it { should respond_to(:remember_token) }
   
   #followin check line is useless: user created as in before block has no invalid values
   it { should be_valid }
@@ -64,7 +67,7 @@ describe User do
     it "should be saved in mixed case" do
       @user.email = mixed_case_email
       @user.save
-      expect (@user.reload.email).to eq mixed_case_email.downcase
+      expect { (@user.reload.email).to eq mixed_case_email.downcase }
     end
   end
   
@@ -103,5 +106,10 @@ describe User do
       before { @user.password = @user.password_confirmation = "a" * 6 }
       it {should be_valid}
     end
+  end
+  
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
   end
 end
